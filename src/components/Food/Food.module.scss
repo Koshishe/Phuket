@@ -1,0 +1,27 @@
+@import 'src/styles/uses';
+
+.wrapper {
+  max-width: $desktop-width;
+  padding: 0 rem(90px);
+  margin: 0 rem(90px);
+  margin-top: rem(48px);
+}
+
+.title {
+  font-size: rem(24px);
+  font-weight: bold;
+  margin-bottom: rem(36px);
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.blocks {
+  margin-top: 36px;
+  display: grid;
+  grid-gap: rem(20px);
+  grid-template-columns: 1fr 1fr 1fr;
+}

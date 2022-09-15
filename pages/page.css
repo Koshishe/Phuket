@@ -1,0 +1,6 @@
+@import 'src/styles/uses';
+
+.content {
+  padding: 0 rem(90px);
+  margin: 0 rem(90px);
+}

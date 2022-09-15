@@ -1,8 +1,15 @@
-$desktop: 1440px;
-$tablet: 768px;
-$mobile: 360px;
+// Size
+$wide-desktop-width: 1600px;
+$desktop-width: 1340px;
+$low-desktop-width: 1024px;
+$tablet-width: 768px;
 
 $desktop-padding: 182px;
+
+// Fonts
+$root-font-size: 100;
+$font-size: 16px;
+$line-height: 1.33;
 
 //colors
 $ui-pink: #FF77B0;
@@ -13,3 +20,21 @@ $ui-violet: #CC74FF;
 $ui-gray: #CECECE;
 $ui-black: #464646;
 $ui-white: #FFFFFF;
+$bg-main: $ui-white;
+
+$blueGradient: linear-gradient(90deg, $ui-green 0%, $ui-blue 100%);
+$pinkGradient: linear-gradient(90deg, $ui-yellow 0%, $ui-pink 100%);
+$greenGradient: linear-gradient(90deg, $ui-green 0%, $ui-yellow 100%);
+
+$blueGradientTransparent: linear-gradient(90deg, rgba($ui-green, 0.6) 0%, rgba($ui-blue, 0.6) 100%);
+$pinkGradientTransparent: linear-gradient(90deg, rgba($ui-yellow, 0.6) 0%, rgba($ui-pink, 0.6) 100%);
+$greenGradientTransparent: linear-gradient(90deg, rgba($ui-green, 0.6) 0%, rgba($ui-yellow, 0.6) 100%);
+
+$blueShadow: drop-shadow(0px 0px 33px rgba($ui-blue, 0.17));
+$pinkShadow: drop-shadow(0px 0px 33px rgba($ui-pink, 0.17));
+$greenShadow: drop-shadow(0px 0px 33px rgba($ui-green, 0.17));
+
+// Transition
+$g-transition-duration: 0.25s;
+$g-transition-easing: ease-out;
+$g-transition: all $g-transition-duration $g-transition-easing;

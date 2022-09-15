@@ -1,0 +1,54 @@
+@import 'src/styles/uses';
+
+.tag {
+  padding: rem(12px) rem(32px);
+  border: none;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: $g-transition;
+
+  &:not(:last-child) {
+    margin-right: rem(20px);
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: $ui-white;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    right: 2px;
+    border-radius: inherit;
+    transition: $g-transition;
+  }
+
+  &:hover {
+    filter: $blueShadow;
+  }
+
+  &.blueGr {
+    background: $blueGradientTransparent;
+  }
+
+  &.pinkGr {
+    background: $pinkGradientTransparent;
+  }
+
+  &.greenGr {
+    background: $greenGradientTransparent;
+  }
+
+  &.active {
+    color: $ui-white;
+
+    &:before {
+      content: none;
+    }
+  }
+}
+
+.content {
+  position: relative;
+}

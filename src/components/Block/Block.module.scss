@@ -1,0 +1,67 @@
+@import 'src/styles/uses';
+
+.block {
+  filter: $blueShadow;
+  background-color: $ui-white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.opened {
+  grid-row-end: 2;
+}
+
+.img {
+  width: 100%;
+  height: rem(149px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.content {
+  padding: rem(10px) rem(20px) rem(20px);
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  margin-bottom: rem(14px);
+}
+
+.tag {
+  padding: rem(4px) rem(8px);
+  color: $ui-white;
+  background: $blueGradientTransparent;
+  border-radius: 20px;
+  font-size: 10px;
+
+  &:not(:last-child) {
+    margin-right: rem(8px);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: rem(12px);
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.workTime {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.link {
+  color: $ui-violet;
+  font-size: 14px;
+  text-decoration: none;
+}

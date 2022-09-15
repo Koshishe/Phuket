@@ -1,15 +1,15 @@
-@import 'src/styles/variables.scss';
+@import 'src/styles/uses.scss';
 
 .wrapper {
   width: 100%;
   background: linear-gradient(90deg, $ui-yellow 0%, $ui-pink 100%);
-  height: 497px;
+  height: rem(497px);
   overflow: hidden;
   position: relative;
 }
 
 .content {
-  max-width: $desktop;
+  max-width: $desktop-width;
   height: 100%;
   margin: 0 auto;
   padding: 0 $desktop-padding;
@@ -21,28 +21,28 @@
 }
 
 .image {
-  width: 40%;
-  height: 100%;
+  width: rem(558px);
+  height: rem(470px);
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
   top: 0;
-  left: 17px;
+  left: rem(17px);
 }
 
 .title {
-  font-size: 120px;
-  line-height: 120px;
+  font-size: rem(120px);
+  line-height: rem(120px);
   color: $ui-white;
   font-weight: bold;
 }
 
 .subtitle {
-  margin-top: 25px;
+  margin-top: rem(25px);
   color: $ui-white;
   font-weight: 400;
-  font-size: 24px;
-  line-height: 36px;
+  font-size: rem(24px);
+  line-height: rem(36px);
   text-align: center;
 }
 
