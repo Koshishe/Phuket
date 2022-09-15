@@ -1,0 +1,10 @@
+.next/
+node_modules/
+next.config.js
+tools/*
+server.js
+jest.config.js
+jest.setup.js
+postcss.config.js
+e2e-tests/
+cms/

@@ -1,0 +1,66 @@
+@import 'src/styles/variables.scss';
+
+.wrapper {
+  width: 100%;
+  background: linear-gradient(90deg, $ui-yellow 0%, $ui-pink 100%);
+  height: 497px;
+  overflow: hidden;
+  position: relative;
+}
+
+.content {
+  max-width: $desktop;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 $desktop-padding;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.image {
+  width: 40%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 17px;
+}
+
+.title {
+  font-size: 120px;
+  line-height: 120px;
+  color: $ui-white;
+  font-weight: bold;
+}
+
+.subtitle {
+  margin-top: 25px;
+  color: $ui-white;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+}
+
+.menu {
+  position: absolute;
+}
+
+.decor {
+  position: absolute;
+}
+
+.big {
+  bottom: 0;
+  right: 0;
+  transform: translate(40%, 40%);
+}
+
+.small {
+  top: 0;
+  right: $desktop-padding;
+}

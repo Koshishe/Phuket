@@ -1,0 +1,30 @@
+@import 'src/styles/variables.scss';
+
+.wrapper {
+  position: absolute;
+  right: $desktop-padding;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.navItem {
+  color: $ui-white;
+  font-size: 14px;
+  line-height: 28px;
+  text-decoration: none;
+  transition: .3s ease;
+
+  &:not(:last-child) {
+    margin-bottom: 18px;
+  }
+
+  &:hover {
+    font-size: 18px;
+  }
+
+  &.isActive {
+    font-size: 18px;
+  }
+}
