@@ -1,12 +1,14 @@
 import React, { ReactElement } from 'react'
 import styles from './TagItem.module.scss'
 import cn from 'classnames'
+import { ColorType } from '@/types/types'
 
 type Props = {
-  colorType: 'pinkGr' | 'blueGr' | 'greenGr'
+  colorType: ColorType
   onClick: () => void
   active?: boolean
   text: string | ReactElement
+  setRef?(ref: HTMLButtonElement | null): void
 }
 
 export const TagItem: React.FC<Props> = ({
@@ -14,13 +16,22 @@ export const TagItem: React.FC<Props> = ({
   onClick,
   active,
   text,
-}) => (
-  <button
-    className={cn(styles.tag, styles[colorType], {
-      [styles.active]: active,
-    })}
-    onClick={onClick}
-  >
-    <span className={styles.content}>{text}</span>
-  </button>
-)
+  setRef,
+}) => {
+  const handleSetRef = (ref?: HTMLButtonElement | null) => {
+    if (ref && setRef) {
+      setRef(ref)
+    }
+  }
+  return (
+    <button
+      ref={handleSetRef}
+      className={cn(styles.tag, styles[colorType], {
+        [styles.active]: active,
+      })}
+      onClick={onClick}
+    >
+      <span className={styles.content}>{text}</span>
+    </button>
+  )
+}

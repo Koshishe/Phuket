@@ -10,6 +10,14 @@
 
   &:not(:last-child) {
     margin-right: rem(20px);
+
+    @include low-desktop {
+      margin-right: rem(12px);
+    }
+
+    @include tablet {
+      margin-right: rem(8px);
+    }
   }
 
   &:before {
@@ -47,8 +55,18 @@
       content: none;
     }
   }
+
+  @include low-desktop {
+    padding: rem(8px) rem(20px);
+  }
+
+  @include tablet {
+    padding: rem(4px) rem(12px);
+  }
 }
 
 .content {
   position: relative;
+  white-space: nowrap;
+  font-size: rem(14px);
 }

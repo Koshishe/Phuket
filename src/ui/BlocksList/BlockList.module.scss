@@ -1,0 +1,18 @@
+@import 'src/styles/uses.scss';
+
+.blocks {
+  margin-top: rem(36px);
+  display: grid;
+  grid-gap: rem(20px);
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @include low-desktop {
+    margin-top: rem(24px);
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Plate } from '@/components/Plate/Plate'
 import { Food } from '@/components/Food/Food'
+import { Entertaments } from '@/components/Entertaments/Entertaments'
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
       <main>
         <Plate />
         <Food />
+        <Entertaments />
       </main>
 
       <footer />

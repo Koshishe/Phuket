@@ -65,3 +65,12 @@ body {
 a {
   transition: $g-transition;
 }
+
+.slick-slider, .slick-list, .slick-track, .slick-slide {
+  height: 100% !important;
+  transition: $g-transition;
+
+  & > div {
+    height: 100%;
+  }
+}

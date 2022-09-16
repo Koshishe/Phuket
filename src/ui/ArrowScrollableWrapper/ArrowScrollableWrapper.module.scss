@@ -1,0 +1,66 @@
+@import 'src/styles/uses';
+
+.listWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.buttonRight {
+  right: rem(-16px);
+  transform: translate(100%, -50%);
+
+  @include low-desktop {
+    right: rem(-4px);
+  }
+
+  &::before {
+    right: rem(34px);
+
+    @include tablet {
+      right: rem(16px);
+    }
+  }
+}
+
+.buttonLeft {
+  left: rem(-16px);
+  transform: translate(-100%, -50%) rotate(180deg);
+
+  @include low-desktop {
+    left: rem(-4px);
+  }
+
+  &::before {
+    left: rem(-50px);
+
+    @include low-desktop {
+      left: rem(-36px);
+    }
+  }
+}
+
+.buttonRight,
+.buttonLeft {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  user-select: none;
+
+  svg {
+    z-index: 2;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: rem(38px);
+    height: rem(51px);
+    background: linear-gradient(270deg, $ui-white 0%, rgba($ui-white, 0) 100%);
+    z-index: 1;
+  }
+}

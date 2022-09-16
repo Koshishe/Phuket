@@ -1,19 +1,42 @@
 @import 'src/styles/uses';
 
 .block {
-  filter: $blueShadow;
+  position: relative;
   background-color: $ui-white;
   border-radius: 20px;
   overflow: hidden;
+  min-height: rem(260px);
+
+  &.blueGr {
+    filter: $blueShadow;
+  }
+
+  &.pinkGr {
+    filter: $pinkShadow;
+  }
+
+  &.greenGr {
+    filter: $greenShadow;
+  }
 }
 
 .opened {
   grid-row-end: 2;
 }
 
-.img {
+.imgWrapper {
   width: 100%;
   height: rem(149px);
+  transition: $g-transition;
+
+  &.full {
+    height: 100%;
+  }
+}
+
+.img {
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -21,6 +44,13 @@
 
 .content {
   padding: rem(10px) rem(20px) rem(20px);
+  transition: $g-transition;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+  }
 }
 
 .tags {
@@ -34,12 +64,23 @@
 .tag {
   padding: rem(4px) rem(8px);
   color: $ui-white;
-  background: $blueGradientTransparent;
   border-radius: 20px;
   font-size: 10px;
 
   &:not(:last-child) {
     margin-right: rem(8px);
+  }
+
+  &.blueGr {
+    background: $blueGradientTransparent;
+  }
+
+  &.pinkGr {
+    background: $pinkGradientTransparent;
+  }
+
+  &.greenGr {
+    background: $greenGradientTransparent;
   }
 }
 
@@ -53,15 +94,85 @@
 .title {
   font-size: 16px;
   font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: rem(20px);
+  max-width: rem(200px);
+  overflow: hidden;
 }
 
 .workTime {
-  margin-bottom: 12px;
+  margin-bottom: rem(12px);
   font-size: 14px;
+}
+
+.morePhoto {
+  color: $ui-blue;
+  text-decoration: underline dotted;
+  padding-bottom: 2px;
+  margin-bottom: rem(12px);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .link {
   color: $ui-violet;
   font-size: 14px;
   text-decoration: none;
+  transition: $g-transition;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  padding: rem(4px) rem(16px);
+  border-radius: 20px 0 20px 20px;
+  color: $ui-white;
+
+  &.blueGr {
+    background: $blueGradient;
+  }
+
+  &.pinkGr {
+    background: $pinkGradient;
+  }
+
+  &.greenGr {
+    background: $greenGradient;
+  }
+}
+
+.buttonBack {
+  position: absolute;
+  bottom: rem(20px);
+  left: rem(20px);
+  padding: rem(4px) rem(8px);
+  color: $ui-white;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 0;
+
+  &.blueGr {
+    background: $blueGradient;
+  }
+
+  &.pinkGr {
+    background: $pinkGradient;
+  }
+
+  &.greenGr {
+    background: $greenGradient;
+  }
 }

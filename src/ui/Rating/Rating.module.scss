@@ -3,3 +3,9 @@
 .wrapper {
   flex: 0 0 auto;
 }
+
+.star {
+  &:not(:last-child) {
+    margin-right: rem(4px);
+  }
+}

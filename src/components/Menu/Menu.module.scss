@@ -1,4 +1,4 @@
-@import 'src/styles/variables.scss';
+@import 'src/styles/uses';
 
 .wrapper {
   position: absolute;
@@ -7,6 +7,14 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+
+  @include low-desktop {
+    right: auto;
+    top: rem(24px);
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
 }
 
 .navItem {
@@ -18,6 +26,11 @@
 
   &:not(:last-child) {
     margin-bottom: 18px;
+
+    @include low-desktop {
+      margin-bottom: 0;
+      margin-right: rem(12px);
+    }
   }
 
   &:hover {
