@@ -4,37 +4,48 @@ import { BlockContent, ColorType } from '@/types/types'
 import { Rating } from '@/ui/Rating/Rating'
 import cn from 'classnames'
 import Slider from 'react-slick'
+import { Inst } from '@/ui/svg/Inst'
+import { FB } from '@/ui/svg/FB'
+import { TW } from '@/ui/svg/TW'
+import { Web } from '@/ui/svg/Web'
 
 type Props = {
   itemContent: BlockContent
   colorType: ColorType
   activePhoto?: boolean
   showActivePhoto?: (value?: string) => void
+  openInfo?: boolean
+  showOpenInfo?: (value?: string) => void
 }
 export function Block({
   itemContent,
   colorType,
   activePhoto,
   showActivePhoto,
+  openInfo,
+  showOpenInfo,
 }: Props) {
   const { img, tags, title, mapLink, rating, socials, moreInfo, workTime } =
     itemContent
+
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    adaptiveHeight: true,
+    className: 'imgSlider',
   }
-
-  // eslint-disable-next-line no-console
-  console.log(socials, moreInfo)
 
   return (
     <div className={cn(styles.block, styles[colorType])}>
       <div
-        className={cn(styles.imgWrapper, { [styles.full]: activePhoto })}
+        className={cn(styles.imgWrapper, {
+          [styles.full]: activePhoto,
+          [styles.closed]: openInfo,
+        })}
         key={`${activePhoto}`}
       >
         <Slider {...settings}>
@@ -44,6 +55,7 @@ export function Block({
                 key={item}
                 className={cn(styles.imgWrapper, {
                   [styles.full]: activePhoto,
+                  [styles.closed]: openInfo,
                 })}
               >
                 <div
@@ -54,7 +66,10 @@ export function Block({
             ))
           ) : (
             <div
-              className={cn(styles.imgWrapper, { [styles.full]: activePhoto })}
+              className={cn(styles.imgWrapper, {
+                [styles.full]: activePhoto,
+                [styles.closed]: openInfo,
+              })}
             >
               <div
                 className={cn(styles.img)}
@@ -65,38 +80,100 @@ export function Block({
         </Slider>
       </div>
       <div className={cn(styles.content, { [styles.hidden]: activePhoto })}>
-        <div className={styles.tags}>
-          {tags.map((tag) => (
-            <div key={tag} className={cn(styles.tag, styles[colorType])}>
-              {tag}
-            </div>
-          ))}
-        </div>
-        <div className={styles.header}>
-          <div className={styles.title}>{title}</div>
-          <Rating rating={rating} />
-        </div>
-        {workTime && (
-          <div className={styles.workTime}>Часы работы: {workTime}</div>
-        )}
-        {img.length > 1 && (
-          <div
-            className={styles.morePhoto}
-            onClick={() => {
-              showActivePhoto && showActivePhoto(title)
-            }}
-          >
-            Больше фото
+        <div className={styles.contentTop}>
+          <div className={styles.tags}>
+            {tags.map((tag) => (
+              <div key={tag} className={cn(styles.tag, styles[colorType])}>
+                {tag}
+              </div>
+            ))}
           </div>
-        )}
-        <a
-          href={mapLink}
-          target="_blank"
-          className={styles.link}
-          rel="noreferrer"
-        >
-          Google Maps →
-        </a>
+          <div className={styles.header}>
+            <div className={styles.title}>{title}</div>
+            <Rating rating={rating} />
+          </div>
+          {workTime && (
+            <div className={styles.workTime}>Часы работы: {workTime}</div>
+          )}
+          {openInfo && <div className={styles.info}>{moreInfo}</div>}
+          <div className={styles.actions}>
+            {moreInfo && (
+              <div
+                className={styles.showMore}
+                onClick={() => {
+                  showOpenInfo &&
+                    (openInfo ? showOpenInfo() : showOpenInfo(title))
+                }}
+              >
+                {openInfo ? 'Скрыть' : 'Подробнее'}
+              </div>
+            )}
+            {img.length > 1 && !openInfo && (
+              <div
+                className={styles.showMore}
+                onClick={() => {
+                  showActivePhoto && showActivePhoto(title)
+                }}
+              >
+                Больше фото
+              </div>
+            )}
+          </div>
+        </div>
+        <div className={styles.footer}>
+          <a
+            href={mapLink}
+            target="_blank"
+            className={styles.link}
+            rel="noreferrer"
+          >
+            Google Maps →
+          </a>
+          {socials && (
+            <div className={styles.socials}>
+              {socials.web && (
+                <a
+                  href={socials.web}
+                  className={styles.socialLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Web />
+                </a>
+              )}
+              {socials.instagram && (
+                <a
+                  href={socials.instagram}
+                  className={styles.socialLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Inst />
+                </a>
+              )}
+              {socials.facebook && (
+                <a
+                  href={socials.facebook}
+                  className={styles.socialLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FB />
+                </a>
+              )}
+              {socials.twitter && (
+                <a
+                  href={socials.twitter}
+                  className={styles.socialLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <TW />
+                </a>
+              )}
+            </div>
+          )}
+        </div>
       </div>
       {activePhoto && (
         <div className={styles.photoControls}>

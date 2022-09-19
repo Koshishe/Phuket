@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "title": "Phuket Wake Park",
+    "mapLink": "https://g.page/phuketwakepark?share",
+    "rating": 4.4,
+    "tags": ["Спорт", "Плавание"],
+    "img": ["https://images.unsplash.com/photo-1531001602318-1916852b9205?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"],
+    "workTime": "10.00-18.00",
+    "moreInfo": "Большой парк для вейкбординга с полосами препятствий и обучением, прочая рекреационная деятельность.",
+    "socials": {
+      "web": "http://www.phuketwakepark.com/"
+    }
+  }, {
+    "id": "2",
+    "title": "Art studio Green Grey - Clay workshop",
+    "mapLink": "https://goo.gl/maps/f5ynZJd48n7aDGcH6",
+    "rating": 5,
+    "tags": ["Художество"],
+    "img": ["https://images.unsplash.com/photo-1595351298020-038700609878?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"],
+    "workTime": "10.00-17.00",
+    "moreInfo": "Phuket Art Projects - Sculpture, Ceramics, Cement, Fiberglass, Plaster, 3D Wall Creation, Wall paint",
+    "socials": {
+      "facebook": "https://www.facebook.com/people/Artstudio-Green-Grey/100057082134819/"
+    }
+  }, {
+    "id": "3",
+    "title": "SFX Cinema Central Phuket",
+    "mapLink": "https://goo.gl/maps/gkfb9eH9zQfXkDgn8",
+    "rating": 4.3,
+    "tags": ["Кино"],
+    "img": ["https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"],
+    "moreInfo": "Phuket Art Projects - Sculpture, Ceramics, Cement, Fiberglass, Plaster, 3D Wall Creation, Wall paint",
+    "socials": {
+      "web": "https://www.sfcinemacity.com/showtime/cinema/9907"
+    }
+  }, {
+    "id": "4",
+    "title": "Central Phuket",
+    "mapLink": "https://goo.gl/maps/gkfb9eH9zQfXkDgn8",
+    "rating": 4.3,
+    "tags": ["Шоппинг", "Кино", "Еда"],
+    "img": ["https://images.unsplash.com/photo-1606617556970-b9cddf4c1319?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"],
+  "workTime": "10.00-22.00",
+    "socials": {
+      "web": "https://www.sfcinemacity.com/showtime/cinema/9907"
+    }
+  }, {
+    "id": "5",
+    "title": "Ton Mai Spa",
+    "mapLink": "https://goo.gl/maps/rBUZggtt1vmezLqe6",
+    "rating": 4.5,
+    "tags": ["Спа", "Массаж", "Сауна"],
+    "img": ["https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80", "https://images.unsplash.com/photo-1583416750470-965b2707b355?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"],
+    "workTime": "10.00-22.00",
+    "moreInfo": "The Ton Mai Spa is equipped with a Lemongrass Steam Sauna with an underwater exit to the outdoor Pool and a Relaxation Zone with comfortable outdoor lounge chairs. The Spa offers a wide variety of massage options. The Ton Mai Restaurant provides a delicious menu, coffee, alcoholic beverages and fresh fruit smoothies.",
+    "socials": {
+      "web": "https://www.tonmaispa.com/",
+      "facebook": "https://www.facebook.com/tonmai.spa",
+      "instagram": "https://www.instagram.com/tonmai.spa/"
+    }
+  }
+]

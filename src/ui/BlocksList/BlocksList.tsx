@@ -10,6 +10,7 @@ type Props = {
 
 export function BlocksList({ shownObjects, colorType }: Props) {
   const [activePhoto, showActivePhoto] = useState<string | undefined>()
+  const [openInfo, showOpenInfo] = useState<string | undefined>()
   return (
     <div className={styles.blocks}>
       {shownObjects.map((item) => (
@@ -19,6 +20,8 @@ export function BlocksList({ shownObjects, colorType }: Props) {
           colorType={colorType}
           activePhoto={activePhoto === item.title}
           showActivePhoto={showActivePhoto}
+          openInfo={openInfo === item.title}
+          showOpenInfo={showOpenInfo}
         />
       ))}
     </div>

@@ -5,6 +5,10 @@
   padding: 0 rem(90px);
   margin: rem(48px) auto 0;
 
+  ::selection {
+    background: $ui-blue;
+  }
+
   @include low-desktop {
     margin: rem(36px) auto 0;
     padding: 0 rem(45px);

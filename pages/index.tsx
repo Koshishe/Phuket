@@ -4,6 +4,8 @@ import Head from 'next/head'
 import { Plate } from '@/components/Plate/Plate'
 import { Food } from '@/components/Food/Food'
 import { Entertaments } from '@/components/Entertaments/Entertaments'
+import { Todo } from '@/components/Todo/Todo'
+import { Footer } from '@/components/Footer/Footer'
 
 const Home: NextPage = () => {
   return (
@@ -18,9 +20,10 @@ const Home: NextPage = () => {
         <Plate />
         <Food />
         <Entertaments />
+        <Todo />
       </main>
 
-      <footer />
+      <Footer />
     </>
   )
 }

@@ -11,10 +11,6 @@ const menuItems = [
     text: 'Куда сходить',
   },
   {
-    name: 'pubs',
-    text: 'Бары',
-  },
-  {
     name: 'todo',
     text: 'Чем заняться',
   },

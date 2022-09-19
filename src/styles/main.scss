@@ -66,11 +66,53 @@ a {
   transition: $g-transition;
 }
 
+.imgSlider {
+  height: 100%;
+}
+
+.slick-track {
+  display: flex;
+}
+
 .slick-slider, .slick-list, .slick-track, .slick-slide {
+  flex: 0 0 auto;
   height: 100% !important;
+  width: 100% !important;
   transition: $g-transition;
 
   & > div {
     height: 100%;
+  }
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: rem(20px);
+  right: rem(20px);
+  display: flex!important;
+  align-items: center;
+
+  li {
+    width: rem(8px);
+    height: rem(8px);
+    border-radius: 20px;
+    transition: $g-transition;
+    background-color: $ui-yellow;
+
+    &:not(:last-child) {
+      margin-right: rem(8px);
+    }
+
+    &.slick-active {
+      transform: scale(1.7);
+    }
+
+    button {
+      font-size: 0;
+      color: transparent;
+      border: 0;
+      outline: none;
+      background: transparent;
+    }
   }
 }

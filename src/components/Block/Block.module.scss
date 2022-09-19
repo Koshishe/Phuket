@@ -6,6 +6,10 @@
   border-radius: 20px;
   overflow: hidden;
   min-height: rem(260px);
+  max-height: rem(370px);
+  transition: $g-transition;
+  display: flex;
+  flex-direction: column;
 
   &.blueGr {
     filter: $blueShadow;
@@ -20,17 +24,18 @@
   }
 }
 
-.opened {
-  grid-row-end: 2;
-}
-
 .imgWrapper {
+  flex: 0 0 auto;
   width: 100%;
   height: rem(149px);
   transition: $g-transition;
 
   &.full {
     height: 100%;
+  }
+
+  &.closed {
+    height: 0;
   }
 }
 
@@ -43,14 +48,22 @@
 }
 
 .content {
+  flex: 1 0 auto;
   padding: rem(10px) rem(20px) rem(20px);
   transition: $g-transition;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &.hidden {
     opacity: 0;
     pointer-events: none;
     user-select: none;
   }
+}
+
+.contentTop {
+  margin-bottom: rem(12px);
 }
 
 .tags {
@@ -66,6 +79,7 @@
   color: $ui-white;
   border-radius: 20px;
   font-size: 10px;
+  white-space: nowrap;
 
   &:not(:last-child) {
     margin-right: rem(8px);
@@ -106,19 +120,55 @@
   font-size: 14px;
 }
 
-.morePhoto {
+.info {
+  overflow-y: auto;
+  max-height: rem(120px);
+
+  &::-webkit-scrollbar {
+    width: rem(6px);
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: rgba($ui-gray, 0.3);
+    border-radius: 20px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $greenGradient;
+    border-radius: 20px;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.showMore {
+  flex: 0 0 auto;
   color: $ui-blue;
   text-decoration: underline dotted;
   padding-bottom: 2px;
-  margin-bottom: rem(12px);
   cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
 
   &:hover {
     text-decoration: none;
   }
 }
 
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .link {
+  flex: 0 0 auto;
   color: $ui-violet;
   font-size: 14px;
   text-decoration: none;
@@ -126,6 +176,21 @@
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.socials {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-right: rem(8px);
   }
 }
 
