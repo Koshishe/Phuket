@@ -7,7 +7,6 @@ export function foodFiltersReducer(
 ) {
   switch (action.type) {
     case 'FILTER_FOOD': {
-      // console.log(action.payload)
       return action.payload
     }
     default: {

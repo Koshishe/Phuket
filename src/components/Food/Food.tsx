@@ -16,12 +16,6 @@ export function Food() {
   const [activeFilters, setActiveFilter] = useState<string[]>([])
   const [shownObjects, setShownObjects] = useState<BlockContent[]>(foodItems)
 
-  useEffect(() => {
-    dispatch(filterFood(filterTags(foodItems)))
-  }, [])
-
-  // console.log(foodFilters)
-
   const handleActiveFilter = (value: string[]) => {
     if (foodFilters.length === value.length) {
       setActiveFilter([])
@@ -37,6 +31,10 @@ export function Food() {
       setShownObjects(filterItems(foodItems, activeFilters))
     }
   }, [activeFilters])
+
+  useEffect(() => {
+    dispatch(filterFood(filterTags(foodItems)))
+  }, [])
 
   return (
     <div className={styles.wrapper} id="food">

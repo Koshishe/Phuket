@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Todo.module.scss'
-import todo from '~/todo.json'
 import { Filters } from '@/ui/Filters/Filters'
 import { BlocksList } from '@/ui/BlocksList/BlocksList'
 import { filterItems, filterTags } from '@/utils/utils'
-import { BlockContent, Filter } from '@/types/types'
-
-const filters: Filter = filterTags(todo)
+import { BlockContent } from '@/types/types'
+import { useDispatch, useSelector } from 'react-redux'
+import { todoFiltersSelector, todoSelector } from '@/state/selectors'
+import { filterTodo } from '@/state/actions'
 
 export function Todo() {
+  const dispatch = useDispatch()
+  const todo = useSelector(todoSelector)
+  const todoFilters = useSelector(todoFiltersSelector)
+
   const [activeFilters, setActiveFilter] = useState<string[]>([])
   const [shownObjects, setShownObjects] = useState<BlockContent[]>(todo)
 
   const handleActiveFilter = (value: string[]) => {
-    if (filters.length === value.length) {
+    if (todoFilters.length === value.length) {
       setActiveFilter([])
     } else {
       setActiveFilter(value)
     }
   }
+
+  useEffect(() => {
+    dispatch(filterTodo(filterTags(todo)))
+  }, [])
 
   useEffect(() => {
     if (!activeFilters.length) {
@@ -32,7 +40,7 @@ export function Todo() {
     <div className={styles.wrapper} id="todo">
       <h2 className={styles.title}>Чем заняться</h2>
       <Filters
-        filters={filters}
+        filters={todoFilters}
         activeFilters={activeFilters}
         setActiveFilter={handleActiveFilter}
         colorType="greenGr"

@@ -1,7 +1,7 @@
 import { BlockContent, Filter } from '@/types/types'
 
-const temp: Filter = []
 export const filterTags = (items: BlockContent[]) => {
+  const temp: Filter = []
   return items
     .map((item) => item.tags)
     .flat()
@@ -22,4 +22,17 @@ export const filterItems = (
   return items.filter(
     ({ tags }) => tags.filter((el) => filters.includes(el)).length
   )
+}
+
+export const scrollToElement = (
+  element: HTMLElement | null,
+  behavior: ScrollBehavior = 'smooth',
+  offset = 24
+) => {
+  if (element) {
+    const top =
+      element.getBoundingClientRect().top + window.pageYOffset - offset
+
+    window.scroll({ top, behavior })
+  }
 }
