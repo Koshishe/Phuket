@@ -7,7 +7,6 @@ import {
   todoFiltersReducer,
   todoReducer,
 } from './reducers'
-import food from '~/food.json'
 import entertament from '~/entertament.json'
 import todo from '~/todo.json'
 import { BlockContent } from '@/types/types'
@@ -22,7 +21,7 @@ export interface IState {
 }
 
 export const initialState: IState = {
-  food: food,
+  food: [],
   entertament: entertament,
   todo: todo,
   foodFilters: [],

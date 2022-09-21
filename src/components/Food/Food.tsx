@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Food.module.scss'
-import { BlockContent } from '@/types/types'
+import { BlockContent, CmsBlockContent } from '@/types/types'
 import { Filters } from '@/ui/Filters/Filters'
 import { BlocksList } from '@/ui/BlocksList/BlocksList'
 import { filterItems, filterTags } from '@/utils/utils'
 import { useDispatch, useSelector } from 'react-redux'
-import { filterFood } from '@/state/actions'
+import { addFood, filterFood } from '@/state/actions'
 import { foodFiltersSelector, foodSelector } from '@/state/selectors'
+import { getRestaurantes } from '@/server/api'
 
 export function Food() {
   const dispatch = useDispatch()
-  const foodItems = useSelector(foodSelector)
+  const food = useSelector(foodSelector)
   const foodFilters = useSelector(foodFiltersSelector)
 
   const [activeFilters, setActiveFilter] = useState<string[]>([])
-  const [shownObjects, setShownObjects] = useState<BlockContent[]>(foodItems)
+  const [shownObjects, setShownObjects] = useState<BlockContent[]>(food)
 
   const handleActiveFilter = (value: string[]) => {
     if (foodFilters.length === value.length) {
@@ -26,15 +27,24 @@ export function Food() {
 
   useEffect(() => {
     if (!activeFilters.length) {
-      setShownObjects(foodItems)
+      setShownObjects(food)
     } else {
-      setShownObjects(filterItems(foodItems, activeFilters))
+      setShownObjects(filterItems(food, activeFilters))
     }
   }, [activeFilters])
 
   useEffect(() => {
-    dispatch(filterFood(filterTags(foodItems)))
+    void getRestaurantes().then((res) => {
+      const result: BlockContent[] = res.map(
+        (item: CmsBlockContent) => item.attributes
+      )
+      dispatch(addFood(result))
+    })
   }, [])
+
+  useEffect(() => {
+    dispatch(filterFood(filterTags(food)))
+  }, [food])
 
   return (
     <div className={styles.wrapper} id="food">

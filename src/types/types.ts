@@ -1,5 +1,19 @@
 export type Filter = string[]
 
+export type CmsBlockContent = {
+  attributes: {
+    identificator: string
+    img: string[]
+    tags: string[]
+    title: string
+    mapLink: string
+    rating: number
+    socials?: Socials
+    moreInfo?: string
+    workTime?: string
+  }
+}
+
 export type Socials = {
   instagram?: string
   facebook?: string
@@ -8,7 +22,7 @@ export type Socials = {
 }
 
 export type BlockContent = {
-  id: string
+  identificator: string
   img: string[]
   tags: string[]
   title: string

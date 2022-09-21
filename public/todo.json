@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "identificator": "1",
     "title": "Phuket Wake Park",
     "mapLink": "https://g.page/phuketwakepark?share",
     "rating": 4.4,
@@ -12,7 +12,7 @@
       "web": "http://www.phuketwakepark.com/"
     }
   }, {
-    "id": "2",
+    "identificator": "2",
     "title": "Art studio Green Grey - Clay workshop",
     "mapLink": "https://goo.gl/maps/f5ynZJd48n7aDGcH6",
     "rating": 5,
@@ -24,7 +24,7 @@
       "facebook": "https://www.facebook.com/people/Artstudio-Green-Grey/100057082134819/"
     }
   }, {
-    "id": "3",
+    "identificator": "3",
     "title": "SFX Cinema Central Phuket",
     "mapLink": "https://goo.gl/maps/gkfb9eH9zQfXkDgn8",
     "rating": 4.3,
@@ -35,7 +35,7 @@
       "web": "https://www.sfcinemacity.com/showtime/cinema/9907"
     }
   }, {
-    "id": "4",
+    "identificator": "4",
     "title": "Central Phuket",
     "mapLink": "https://goo.gl/maps/gkfb9eH9zQfXkDgn8",
     "rating": 4.3,
@@ -46,7 +46,7 @@
       "web": "https://www.sfcinemacity.com/showtime/cinema/9907"
     }
   }, {
-    "id": "5",
+    "identificator": "5",
     "title": "Ton Mai Spa",
     "mapLink": "https://goo.gl/maps/rBUZggtt1vmezLqe6",
     "rating": 4.5,

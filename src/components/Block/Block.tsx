@@ -41,18 +41,32 @@ export function Block({
 
   return (
     <div className={cn(styles.block, styles[colorType])}>
-      <div
-        className={cn(styles.imgWrapper, {
-          [styles.full]: activePhoto,
-          [styles.closed]: openInfo,
-        })}
-        key={`${activePhoto}`}
-      >
-        <Slider {...settings}>
-          {activePhoto ? (
-            img.map((item) => (
+      {img && img.length && (
+        <div
+          className={cn(styles.imgWrapper, {
+            [styles.full]: activePhoto,
+            [styles.closed]: openInfo,
+          })}
+          key={`${activePhoto}`}
+        >
+          <Slider {...settings}>
+            {activePhoto ? (
+              img.map((item) => (
+                <div
+                  key={item}
+                  className={cn(styles.imgWrapper, {
+                    [styles.full]: activePhoto,
+                    [styles.closed]: openInfo,
+                  })}
+                >
+                  <div
+                    className={cn(styles.img)}
+                    style={{ backgroundImage: `url(${item})` }}
+                  />
+                </div>
+              ))
+            ) : (
               <div
-                key={item}
                 className={cn(styles.imgWrapper, {
                   [styles.full]: activePhoto,
                   [styles.closed]: openInfo,
@@ -60,25 +74,13 @@ export function Block({
               >
                 <div
                   className={cn(styles.img)}
-                  style={{ backgroundImage: `url(${item})` }}
+                  style={{ backgroundImage: `url(${img[0]})` }}
                 />
               </div>
-            ))
-          ) : (
-            <div
-              className={cn(styles.imgWrapper, {
-                [styles.full]: activePhoto,
-                [styles.closed]: openInfo,
-              })}
-            >
-              <div
-                className={cn(styles.img)}
-                style={{ backgroundImage: `url(${img[0]})` }}
-              />
-            </div>
-          )}
-        </Slider>
-      </div>
+            )}
+          </Slider>
+        </div>
+      )}
       <div className={cn(styles.content, { [styles.hidden]: activePhoto })}>
         <div className={styles.contentTop}>
           <div className={styles.tags}>
@@ -108,7 +110,7 @@ export function Block({
                 {openInfo ? 'Скрыть' : 'Подробнее'}
               </div>
             )}
-            {img.length > 1 && !openInfo && (
+            {img && img.length > 1 && !openInfo && (
               <div
                 className={styles.showMore}
                 onClick={() => {

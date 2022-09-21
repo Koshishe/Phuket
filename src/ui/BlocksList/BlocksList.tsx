@@ -15,7 +15,7 @@ export function BlocksList({ shownObjects, colorType }: Props) {
     <div className={styles.blocks}>
       {shownObjects.map((item) => (
         <Block
-          key={item.id}
+          key={item.identificator}
           itemContent={item}
           colorType={colorType}
           activePhoto={activePhoto === item.title}
