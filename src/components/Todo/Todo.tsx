@@ -6,7 +6,8 @@ import { filterItems, filterTags } from '@/utils/utils'
 import { BlockContent } from '@/types/types'
 import { useDispatch, useSelector } from 'react-redux'
 import { todoFiltersSelector, todoSelector } from '@/state/selectors'
-import { filterTodo } from '@/state/actions'
+import { addTodo, filterTodo } from '@/state/actions'
+import { getTodos } from '@/server/api'
 
 export function Todo() {
   const dispatch = useDispatch()
@@ -17,24 +18,25 @@ export function Todo() {
   const [shownObjects, setShownObjects] = useState<BlockContent[]>(todo)
 
   const handleActiveFilter = (value: string[]) => {
-    if (todoFilters.length === value.length) {
+    if (todoFilters.length === value.length || !value.length) {
       setActiveFilter([])
+      setShownObjects(todo)
     } else {
       setActiveFilter(value)
+      setShownObjects(filterItems(todo, value))
     }
   }
 
   useEffect(() => {
-    dispatch(filterTodo(filterTags(todo)))
+    void getTodos().then((res: BlockContent[]) => {
+      dispatch(addTodo(res))
+    })
   }, [])
 
   useEffect(() => {
-    if (!activeFilters.length) {
-      setShownObjects(todo)
-    } else {
-      setShownObjects(filterItems(todo, activeFilters))
-    }
-  }, [activeFilters])
+    dispatch(filterTodo(filterTags(todo)))
+    setShownObjects(todo)
+  }, [todo])
 
   return (
     <div className={styles.wrapper} id="todo">

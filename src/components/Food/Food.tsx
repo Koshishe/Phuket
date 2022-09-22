@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Food.module.scss'
-import { BlockContent, CmsBlockContent } from '@/types/types'
+import { BlockContent } from '@/types/types'
 import { Filters } from '@/ui/Filters/Filters'
 import { BlocksList } from '@/ui/BlocksList/BlocksList'
 import { filterItems, filterTags } from '@/utils/utils'
@@ -18,32 +18,24 @@ export function Food() {
   const [shownObjects, setShownObjects] = useState<BlockContent[]>(food)
 
   const handleActiveFilter = (value: string[]) => {
-    if (foodFilters.length === value.length) {
+    if (foodFilters.length === value.length || !value.length) {
       setActiveFilter([])
+      setShownObjects(food)
     } else {
       setActiveFilter(value)
+      setShownObjects(filterItems(food, value))
     }
   }
 
   useEffect(() => {
-    if (!activeFilters.length) {
-      setShownObjects(food)
-    } else {
-      setShownObjects(filterItems(food, activeFilters))
-    }
-  }, [activeFilters])
-
-  useEffect(() => {
-    void getRestaurantes().then((res) => {
-      const result: BlockContent[] = res.map(
-        (item: CmsBlockContent) => item.attributes
-      )
-      dispatch(addFood(result))
+    void getRestaurantes().then((res: BlockContent[]) => {
+      dispatch(addFood(res))
     })
   }, [])
 
   useEffect(() => {
     dispatch(filterFood(filterTags(food)))
+    setShownObjects(food)
   }, [food])
 
   return (

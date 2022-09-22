@@ -123,6 +123,7 @@
 .info {
   overflow-y: auto;
   max-height: rem(120px);
+  font-size: 14px;
 
   &::-webkit-scrollbar {
     width: rem(6px);

@@ -9,7 +9,8 @@ import {
   entertamentFiltersSelector,
   entertamentSelector,
 } from '@/state/selectors'
-import { filterEntertament } from '@/state/actions'
+import { addEntertament, filterEntertament } from '@/state/actions'
+import { getEntertaments } from '@/server/api'
 
 export function Entertaments() {
   const dispatch = useDispatch()
@@ -20,24 +21,25 @@ export function Entertaments() {
   const [shownObjects, setShownObjects] = useState<BlockContent[]>(entertament)
 
   const handleActiveFilter = (value: string[]) => {
-    if (entertamentFilters.length === value.length) {
+    if (entertamentFilters.length === value.length || !value.length) {
       setActiveFilter([])
+      setShownObjects(entertament)
     } else {
       setActiveFilter(value)
+      setShownObjects(filterItems(entertament, value))
     }
   }
 
   useEffect(() => {
-    if (!activeFilters.length) {
-      setShownObjects(entertament)
-    } else {
-      setShownObjects(filterItems(entertament, activeFilters))
-    }
-  }, [activeFilters])
+    void getEntertaments().then((res: BlockContent[]) => {
+      dispatch(addEntertament(res))
+    })
+  }, [])
 
   useEffect(() => {
     dispatch(filterEntertament(filterTags(entertament)))
-  }, [])
+    setShownObjects(entertament)
+  }, [entertament])
 
   return (
     <div className={styles.wrapper} id="entertament">

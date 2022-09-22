@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "entertaments",
+  "info": {
+    "singularName": "entertament",
+    "pluralName": "entertaments",
+    "displayName": "Entertaments"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "mapLink": {
+      "type": "string",
+      "required": true
+    },
+    "rating": {
+      "type": "decimal"
+    },
+    "tags": {
+      "type": "json",
+      "required": true
+    },
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "identificator": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    }
+  }
+}

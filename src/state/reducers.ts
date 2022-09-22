@@ -47,7 +47,6 @@ export function foodReducer(
   state: BlockContent[] = initialState.food,
   action: { type: string; payload: BlockContent[] }
 ): BlockContent[] {
-  console.log(action)
   switch (action.type) {
     case 'ADD_FOOD': {
       return action.payload

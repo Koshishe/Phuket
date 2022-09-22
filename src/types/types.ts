@@ -1,9 +1,18 @@
 export type Filter = string[]
+export type CmsImgData = {
+  attributes: {
+    url: string
+  }
+}
+
+export type CmsImg = {
+  data: CmsImgData[]
+}
 
 export type CmsBlockContent = {
   attributes: {
     identificator: string
-    img: string[]
+    img: CmsImg
     tags: string[]
     title: string
     mapLink: string

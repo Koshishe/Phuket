@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "todos",
+  "info": {
+    "singularName": "todo",
+    "pluralName": "todos",
+    "displayName": "Todo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "mapLink": {
+      "type": "string",
+      "required": true
+    },
+    "rating": {
+      "type": "decimal"
+    },
+    "tags": {
+      "type": "json",
+      "required": true
+    },
+    "img": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "workTime": {
+      "type": "string"
+    },
+    "moreInfo": {
+      "type": "text"
+    },
+    "socials": {
+      "type": "json"
+    },
+    "identificator": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}
