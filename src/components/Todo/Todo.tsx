@@ -6,8 +6,7 @@ import { filterItems, filterTags } from '@/utils/utils'
 import { BlockContent } from '@/types/types'
 import { useDispatch, useSelector } from 'react-redux'
 import { todoFiltersSelector, todoSelector } from '@/state/selectors'
-import { addTodo, filterTodo } from '@/state/actions'
-import { getTodos } from '@/server/api'
+import { filterTodo } from '@/state/actions'
 
 export function Todo() {
   const dispatch = useDispatch()
@@ -28,15 +27,8 @@ export function Todo() {
   }
 
   useEffect(() => {
-    void getTodos().then((res: BlockContent[]) => {
-      dispatch(addTodo(res))
-    })
-  }, [])
-
-  useEffect(() => {
     dispatch(filterTodo(filterTags(todo)))
-    setShownObjects(todo)
-  }, [todo])
+  }, [])
 
   return (
     <div className={styles.wrapper} id="todo">

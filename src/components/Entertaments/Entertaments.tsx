@@ -9,8 +9,7 @@ import {
   entertamentFiltersSelector,
   entertamentSelector,
 } from '@/state/selectors'
-import { addEntertament, filterEntertament } from '@/state/actions'
-import { getEntertaments } from '@/server/api'
+import { filterEntertament } from '@/state/actions'
 
 export function Entertaments() {
   const dispatch = useDispatch()
@@ -31,15 +30,8 @@ export function Entertaments() {
   }
 
   useEffect(() => {
-    void getEntertaments().then((res: BlockContent[]) => {
-      dispatch(addEntertament(res))
-    })
-  }, [])
-
-  useEffect(() => {
     dispatch(filterEntertament(filterTags(entertament)))
-    setShownObjects(entertament)
-  }, [entertament])
+  }, [])
 
   return (
     <div className={styles.wrapper} id="entertament">

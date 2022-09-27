@@ -1,0 +1,18 @@
+@import "variables";
+
+:root {
+  --ui-pink: $ui-pink;
+  --ui-yellow: $ui-yellow;
+  --ui-green: $ui-green;
+  --ui-blue: $ui-blue;
+  --ui-violet: $ui-violet;
+  --bg-main: $bg-main;
+  --text-color: $text-color;
+  --text-dark-color: $text-dark-color;
+
+  &.main {
+    opacity: 1;
+  }
+
+//var(--main-color, $c-lightOrange)
+}

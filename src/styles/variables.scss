@@ -13,19 +13,26 @@ $line-height: 1.33;
 
 //colors
 $ui-pink: #FF77B0;
+$ui-pink-dark: #C45C88;
 $ui-yellow: #FFEE59;
+$ui-yellow-dark: #DECF4E;
 $ui-green: #6AE057;
+$ui-green-dark: #2C5E25;
 $ui-blue: #54B7FF;
+$ui-blue-dark: #1F445E;
 $ui-violet: #CC74FF;
+$ui-violet-dark: #4B2A5E;
 $ui-gray: #CECECE;
 $ui-black: #464646;
 $ui-white: #FFFFFF;
 $bg-main: $ui-white;
+$text-color: $ui-white;
+$text-dark-color: $ui-black;
 
-$blueGradient: linear-gradient(90deg, $ui-green 0%, $ui-blue 100%);
-$pinkGradient: linear-gradient(90deg, $ui-yellow 0%, $ui-pink 100%);
-$greenGradient: linear-gradient(90deg, $ui-green 0%, $ui-yellow 100%);
-$violetGradient: linear-gradient(90deg, $ui-violet 0%, $ui-blue 100%);
+$blueGradient: linear-gradient(90deg, var(--ui-green, $ui-green) 0%, var(--ui-blue, $ui-blue) 100%);
+$pinkGradient: linear-gradient(90deg, var(--ui-yellow, $ui-yellow) 0%, var(--ui-pink, $ui-pink) 100%);
+$greenGradient: linear-gradient(90deg, var(--ui-green, $ui-green) 0%, var(--ui-yellow, $ui-yellow) 100%);
+$violetGradient: linear-gradient(90deg, var(--ui-violet, $ui-violet) 0%, var(--ui-blue, $ui-blue) 100%);
 
 $blueGradientTransparent: linear-gradient(90deg, rgba($ui-green, 0.6) 0%, rgba($ui-blue, 0.6) 100%);
 $pinkGradientTransparent: linear-gradient(90deg, rgba($ui-yellow, 0.6) 0%, rgba($ui-pink, 0.6) 100%);

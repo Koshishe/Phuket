@@ -2,10 +2,11 @@
 
 .wrapper {
   width: 100%;
-  background: linear-gradient(90deg, $ui-yellow 0%, $ui-pink 100%);
+  background: linear-gradient(90deg, var(--ui-yellow, $ui-yellow) 0%, var(--ui-pink, $ui-pink) 100%);
   height: rem(497px);
   overflow: hidden;
   position: relative;
+  transition: $g-transition;
 
   @include low-desktop {
     height: rem(415px);
@@ -44,7 +45,7 @@
 
 .title {
   font-size: rem(120px);
-  color: $ui-white;
+  color: var(--text-color, $text-color);
   font-weight: bold;
 
   @include low-desktop {
@@ -54,7 +55,7 @@
 
 .subtitle {
   margin-top: rem(25px);
-  color: $ui-white;
+  color: var(--text-color, $text-color);
   font-weight: 400;
   font-size: rem(24px);
   line-height: rem(36px);

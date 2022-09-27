@@ -18,7 +18,7 @@
 }
 
 .navItem {
-  color: $ui-white;
+  color: var(--text-color, $text-color);
   font-size: 14px;
   line-height: 28px;
   text-decoration: none;

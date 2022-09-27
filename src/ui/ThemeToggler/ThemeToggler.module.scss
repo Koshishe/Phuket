@@ -1,0 +1,43 @@
+@import 'src/styles/uses';
+
+.label {
+  margin: rem(36px) auto 0;
+  width: rem(56px);
+  height: rem(30px);
+  border-radius: 20px;
+  background-color: $bg-main;
+  display: block;
+  position: relative;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    width: rem(26px);
+    border-radius: 100%;
+    background-color: var(--ui-yellow, $ui-yellow);
+    height: rem(26px);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: $g-transition;
+  }
+
+  &.dark {
+    &:before {
+      background-color: $ui-violet;
+    }
+  }
+}
+
+.checkbox {
+  display: none;
+
+  &:checked {
+    ~ .label {
+      &:before {
+        background-color: $ui-violet;
+        transform: translateX(100%);
+      }
+    }
+  }
+}

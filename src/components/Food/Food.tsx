@@ -5,9 +5,8 @@ import { Filters } from '@/ui/Filters/Filters'
 import { BlocksList } from '@/ui/BlocksList/BlocksList'
 import { filterItems, filterTags } from '@/utils/utils'
 import { useDispatch, useSelector } from 'react-redux'
-import { addFood, filterFood } from '@/state/actions'
+import { filterFood } from '@/state/actions'
 import { foodFiltersSelector, foodSelector } from '@/state/selectors'
-import { getRestaurantes } from '@/server/api'
 
 export function Food() {
   const dispatch = useDispatch()
@@ -28,15 +27,8 @@ export function Food() {
   }
 
   useEffect(() => {
-    void getRestaurantes().then((res: BlockContent[]) => {
-      dispatch(addFood(res))
-    })
-  }, [])
-
-  useEffect(() => {
     dispatch(filterFood(filterTags(food)))
-    setShownObjects(food)
-  }, [food])
+  }, [])
 
   return (
     <div className={styles.wrapper} id="food">

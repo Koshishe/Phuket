@@ -6,7 +6,7 @@
   margin: rem(48px) auto 0;
 
   ::selection {
-    background: $ui-green;
+    background: var(--ui-green, $ui-green);
   }
 
   @include low-desktop {

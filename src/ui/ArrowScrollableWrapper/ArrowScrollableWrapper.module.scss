@@ -60,7 +60,7 @@
     position: absolute;
     width: rem(38px);
     height: rem(51px);
-    background: linear-gradient(270deg, $ui-white 0%, rgba($ui-white, 0) 100%);
+    background: linear-gradient(270deg, var(--bg-main, $bg-main) 0%, rgba($bg-main, 0) 100%);
     z-index: 1;
   }
 }

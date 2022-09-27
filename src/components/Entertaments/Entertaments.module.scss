@@ -6,7 +6,7 @@
   margin: rem(48px) auto 0;
 
   ::selection {
-    background: $ui-pink;
+    background: var(--ui-pink, $ui-pink);
   }
 
   @include low-desktop {
